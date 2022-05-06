@@ -3,8 +3,8 @@
 This project provides the user to send NEAR tokens to multiple accounts at the same time and different amounts.
 
 There are generally two types of money sending options in the project. 
-- The first one, after subtracting the commission from the money invested in the contract, distributes the money equally to the specified addresses. 
-- The second, after subtracting the commission from the money invested in the contract, distributes the money to the addresses in the specified amounts.
+- The first one, after subtracting the commission from the NEAR token invested in the contract, distributes the money equally to the specified addresses. 
+- The second, after subtracting the commission from the NEAR token invested in the contract, distributes the money to the addresses in the specified amounts.
 
 This repository includes a complete project structure for AssemblyScript contracts targeting the NEAR platform.
 
