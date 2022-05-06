@@ -18,26 +18,6 @@ AssemblyScript contract is written in the "simple style" when the `index.ts` fil
 
 
 ```ts
-// return the string 'hello world'
-export function helloWorld(): string {}
-
-// read the given key from account (contract) storage
-export function read(key: string): string {}
-
-// write the given value at the given key to account (contract) storage
-export function write(key: string, value: string): string {}
-
-// private helper method used by read() and write() above
-private storageReport(): string {}
-```
-
-### Singleton
-
-We say that an AssemblyScript contract is written in the "singleton style" when the `index.ts` file (the contract entry point) has a single exported class (the name of the class doesn't matter) that is decorated with `@nearBindgen`.
-
-In this case, all methods on the class become public contract methods unless marked `private`.  Also, all instance variables are stored as a serialized instance of the class under a special storage key named `STATE`.  AssemblyScript uses JSON for storage serialization (as opposed to Rust contracts which use a custom binary serialization format called borsh).
-
-```ts
 import { storage, Context, u128, logging, ContractPromiseBatch, context} from "near-sdk-as"
 import { Sending} from './model';
 
@@ -77,8 +57,13 @@ INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
 1. clone this repo to a local folder
 2. run `yarn`
 3. run `./scripts/1.send.sh`
+4. write terminal `export CONTRACT=<dev-123-456>` 
+5. check CONTRACT is valid or not `echo $CONTRACT` 
+6. write terminal `near call $CONTRACT sendMoneyEqually '{"names": ["user1.testnet", "user2.testnet"]}' --accountId sender.testnet --amount X` 
+7. write terminal `near call $CONTRACT sendMoneySeperately '{"names": ["user1.testnet", "user2.testnet"], "amounts"=[x, y, z}' --accountId sender.testnet --amount X`
 
-### Videos
+
+### Scripts
 
 **`1.send.sh`**
 ```ts
